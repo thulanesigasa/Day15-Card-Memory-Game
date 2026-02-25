@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 15: Card Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+    <div class="background-decor"></div>
+
+    <div class="container">
+
+        <header class="game-header">
+            <div>
+                <h1 class="mil-accent">Memory <span style="color:var(--heading-color)">Match</span></h1>
+                <p>Train your brain. <strong style="color:var(--accent-color)">[ Level <span id="level-val">1</span>
+                        ]</strong></p>
+            </div>
+            <button id="restart-btn" class="nav-btn">
+                <i data-feather="rotate-ccw"></i> Restart
+            </button>
+        </header>
+
+        <div class="scoreboard">
+            <div class="score-box">
+                <span class="label">Moves</span>
+                <span class="value" id="moves-val">0</span>
+            </div>
+            <div class="score-box">
+                <span class="label">Time</span>
+                <span class="value" id="time-val">00:00</span>
+            </div>
+            <div class="score-box">
+                <span class="label">Pairs</span>
+                <span class="value"><span id="pairs-val">0</span> / <span id="total-pairs-val">4</span></span>
+            </div>
+        </div>
+
+        <section class="memory-game" id="game-board">
+            <!-- Cards injected by JS -->
+        </section>
+
+    </div>
+
+    <!-- Win Modal (Hidden by default) -->
+    <div class="modal-overlay hidden" id="win-modal">
+        <div class="modal-content glass-card">
+            <h2 id="modal-title">Level <span class="mil-accent">Complete!</span></h2>
+            <i data-feather="award" class="award-icon mil-accent"></i>
+            <div class="stats-grid">
+                <div class="stat">
+                    <span>Moves</span>
+                    <strong id="final-moves">0</strong>
+                </div>
+                <div class="stat">
+                    <span>Time</span>
+                    <strong id="final-time">00:00</strong>
+                </div>
+            </div>
+
+            <button id="next-level-btn" class="submit-btn" style="margin-bottom: 10px;">Next Level <i
+                    data-feather="arrow-right"></i></button>
+            <button id="modal-restart" class="submit-btn"
+                style="background: transparent; border: 1px solid var(--glass-border); color: var(--heading-color);">Play
+                Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>
